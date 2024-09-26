@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="container">
+        <h1>About Me</h1>
+        <form id="aboutMeForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required>
+
+            <label for="bio">Biography:</label>
+            <textarea id="bio" required></textarea>
+
+            <label for="cv">Upload CV:</label>
+            <input type="file" id="cv" accept=".pdf,.doc,.docx" required>
+
+            <button type="submit">Submit</button>
+        </form>
+        <div id="result"></div>
+    </div>
+    <script type="module" src="index.js"></script>
+</body>
+</html>
