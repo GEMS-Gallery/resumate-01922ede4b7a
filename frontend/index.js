@@ -7,11 +7,21 @@ document.getElementById('aboutMeForm').addEventListener('submit', async (event) 
     const bio = document.getElementById('bio').value;
     const cvFile = document.getElementById('cv').files[0];
 
+    if (!cvFile) {
+        alert("Please upload a CV file.");
+        return;
+    }
+
     const reader = new FileReader();
     reader.onload = async (e) => {
         const cvData = e.target.result;
-        const result = await backend.uploadCV(name, bio, cvData);
-        displayResult(result);
+        try {
+            const result = await backend.uploadCV(name, bio, cvData);
+            displayResult(result);
+        } catch (error) {
+            console.error("Error uploading CV:", error);
+            alert("There was an error uploading your CV. Please try again.");
+        }
     };
     reader.readAsArrayBuffer(cvFile);
 });
